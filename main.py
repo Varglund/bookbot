@@ -1,5 +1,6 @@
 from pathlib import Path
 from stats import count_characters, count_words
+import sys
 
 def get_text(path_to_file: Path):
     with open(path_to_file) as fp:
@@ -20,7 +21,11 @@ def print_report(text: str, path_to_file: Path)->None:
     print("--- End report ---")
 
 def main()->None:
-    path_to_file = Path("books","frankenstein.txt")
+    args = sys.argv
+    if len(args)<2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    path_to_file = sys.argv[1]
     text = get_text(path_to_file)
     print_report(text, path_to_file)
     
