@@ -17,7 +17,7 @@ def print_report(text: str, path_to_file: Path)->None:
     print(f"{word_count} words found in the document\n")
     for item in sorted_character_counts:
         if item[key].isalpha():
-            print(f"The '{item[key]}' character was found {item[value]} times")
+            print(f"{item[key]}: {item[value]}")
     print("--- End report ---")
 
 def main()->None:
