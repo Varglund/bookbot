@@ -1,26 +1,10 @@
 from pathlib import Path
+from stats import count_characters, count_words
 
 def get_text(path_to_file: Path):
     with open(path_to_file) as fp:
         text = fp.read()
     return text
-
-def count_words(text: str)->int:
-    # prompt is to find 77986 "words"
-    items = text.split()
-    # omitted as this was overthinking the intended solution
-    # words = []
-    # for item in items: 
-    #     if item.isalpha():
-    #         words.append(item)
-    return len(items)
-
-def count_characters(text: str)->dict:
-    character_counts = {}
-    for character in text:
-        character = character.lower()
-        character_counts[character] = character_counts.get(character, 0) +1
-    return character_counts
 
 def print_report(text: str, path_to_file: Path)->None:
     word_count = count_words(text)
